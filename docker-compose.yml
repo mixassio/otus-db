@@ -1,0 +1,16 @@
+version: "3.3"
+
+services:
+  db:
+    image: postgres
+    container_name: otus_pg
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+    volumes:
+      # - "pgdata:/var/lib/postgresql/data"
+      - "./init/pg/init.sql:/docker-entrypoint-initdb.d/init.sql"
+# volumes:
+  # pgdata:
